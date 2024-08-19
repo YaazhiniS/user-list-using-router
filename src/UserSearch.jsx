@@ -1,11 +1,10 @@
 
 import  { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './App.css'
-const UserList = () => {
+const UserSearch = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     
@@ -24,9 +23,7 @@ const UserList = () => {
     setSearch(e.target.value);
   };
 
-  const handleClick = (userId) => {
-    navigate(`/user/${userId}`);
-  };
+ 
 
   return (
     <div>
@@ -36,28 +33,22 @@ const UserList = () => {
         value={search}
         onChange={handleSearchChange}
       />
-      {/* <ul>
-        {filteredUsers.map(user => (
-          <li key={user.id} onClick={() => handleUserClick(user.id)}>
-            {user.name}
-          </li>
-        ))}
-      </ul> */}
+     
       <table>
       <thead>
         <tr>
           <th>S.No</th>
           <th>Name</th>
-          <th>View</th>
+         
         </tr>
       </thead>
       <tbody>
       
       { filteredUsers.map(user => (
         <tr key={user.id}>
-          <td>{user.id+1}</td>
+          <td>{user.id}</td>
           <td>{user.name}</td>
-          <td><button onClick={() => handleClick(user.id)}>click me</button></td>
+          
      
           
         </tr>
@@ -68,4 +59,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default UserSearch;

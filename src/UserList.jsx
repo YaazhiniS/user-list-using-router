@@ -1,36 +1,31 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useParams } from 'react-router-dom';
-import './App.css'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
- function List() {
-  const { userId } = useParams();
-  const[value,setValue]=useState([]);
-  const {name, email, username, phone} = value;
+export default function UserList() {
+  const { userId } = useParams(); 
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  useEffect(()=>{
-    fetch (`https://jsonplaceholder.typicode.com/users/${userId}`)
-    
-    .then(response=>response.json())
-    .then(data=>setValue(data))
-    .catch(err=>console.log(err))
+  // console.log('user', user)/
 
-  },[])
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+      .then(response => response.json())
+      .then(data => {setUser(data); setLoading(false);})
+      .catch(error => console.error('Error fetching user details:', error));
+  }, [userId]);
+
 
   return (
     <div>
-      <h2>User Details</h2>
+      {loading ? <p>Loading</p> : <><h1>{user.name}</h1>
+      <p>Email: {user.email}</p>
+      <p>Phone: {user.phone}</p>
+      <p>Website: {user.website}</p></>}
       
-        <div>
-          <p>Name: {name}</p>
-          <p>Email: {email}</p>
-          <p>Username: {username}</p>
-          <p>Phone: {phone}</p>
-          
-        </div>
-    </div> 
-    
       
-  )
-}
-export default List;
+    </div>
+  );
+};
+

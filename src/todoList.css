@@ -1,0 +1,20 @@
+.custom-modal-content {
+  border: 2px solid; 
+  border-radius: 15px;       
+  padding: 20px;            
+  background-color:gray; 
+  width:50%  
+}
+.tick {
+  font-size: 24px; /* Size of the tick */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  user-select: none; /* Prevents text selection */
+}
+
+.tick.completed {
+  color: green; /* Color for completed status */
+}
+
+.tick.not-completed {
+  color: red; /* Color for not completed status */
+}

@@ -12,7 +12,7 @@ import Home  from './Home';
 import Items from './Items';
 import Cart from './cart'
 import Account  from './Account';
-// import NavandFetch from './NavandFetch';
+import NavandFetch from './NavandFetch';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           <Route path="/Items"  element={<Items/>} />
           <Route path="/Cart"  element={<Cart/>} />
           <Route path="/Account"  element={<Account/>} />
-          {/* <Route path="/NavandFetch"  element={<NavandFetch/>} /> */}
+          <Route path="/NavandFetch"  element={<NavandFetch/>} />
 
     </Routes>
     {/* <div><Outlet/></div> */}

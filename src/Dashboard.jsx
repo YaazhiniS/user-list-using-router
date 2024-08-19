@@ -12,6 +12,7 @@ export default function Dashboard(){
     <li style={{padding:'10px'}}><button  onClick={() => navigate('/userSearch')}>Assignment 3-User Search</button></li>
     <li style={{padding:'10px'}}><button  onClick={() => navigate('/LoginPage')}>Assignment 4-Login Page</button> </li>
     <li style={{padding:'10px'}}><button onClick={()=>navigate('/NavigationMenu')}>Assignment 5-NavigationMenu</button></li>
+    <li style={{padding:'10px'}}><button onClick={()=>navigate('/NavandFetch')}>Assignment 5-NavandFetch</button></li>
     </ol>
     </>
     
